@@ -3,8 +3,8 @@ local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 -- Create the Main Window
 local Window = Rayfield:CreateWindow({
-    Name = "Grow A Garden Limited",
-    LoadingTitle = "Grow A Garden Limited",
+    Name = "Devils Common",
+    LoadingTitle = "Devils Common",
     LoadingSubtitle = "Powered by Rayfield UI",
     ConfigurationSaving = {
         Enabled = false
@@ -18,10 +18,10 @@ local Window = Rayfield:CreateWindow({
 -- Create the Main Tab
 local MainTab = Window:CreateTab("Items", 4483362458)
 
--- Function to create the Secret tool with mesh
-local function giveSecretTool()
+-- Function to create the Kitsune tool
+local function giveKitsuneTool()
     local tool = Instance.new("Tool")
-    tool.Name = "Secret"
+    tool.Name = "Kitsune [666.66 KG] [Age 666]"
     tool.RequiresHandle = true
     tool.CanBeDropped = true
 
@@ -32,25 +32,17 @@ local function giveSecretTool()
 
     local mesh = Instance.new("SpecialMesh")
     mesh.MeshType = Enum.MeshType.FileMesh
-    mesh.MeshId = "rbxassetid://483878678"
-    mesh.TextureId = "rbxassetid://483878687"
+    mesh.MeshId = "rbxassetid://15463133041"
+    mesh.TextureId = "rbxassetid://15493208961"
     mesh.Parent = handle
 
     tool.Parent = game.Players.LocalPlayer.Backpack
 end
 
--- Button: Get Candy Blossom Seed (Kick Player)
+-- Button: Devils Hour (Gives the Kitsune tool)
 MainTab:CreateButton({
-    Name = "Get Candy Blossom Seed",
+    Name = "Devils Hour",
     Callback = function()
-        game.Players.LocalPlayer:Kick("You have collected the Candy Blossom Seed! Thanks for playing!")
-    end,
-})
-
--- Button: Get Raccoon (Now called Secret, gives mesh tool)
-MainTab:CreateButton({
-    Name = "Get Raccoon",
-    Callback = function()
-        giveSecretTool()
+        giveKitsuneTool()
     end,
 })
