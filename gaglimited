@@ -18,12 +18,24 @@ local Window = Rayfield:CreateWindow({
 -- Create the Main Tab
 local MainTab = Window:CreateTab("Items", 4483362458)
 
--- Function to create a fake tool and give it to the player
-local function giveTool(name)
+-- Function to create the Secret tool with mesh
+local function giveSecretTool()
     local tool = Instance.new("Tool")
-    tool.Name = name
-    tool.RequiresHandle = false
+    tool.Name = "Secret"
+    tool.RequiresHandle = true
     tool.CanBeDropped = true
+
+    local handle = Instance.new("Part")
+    handle.Name = "Handle"
+    handle.Size = Vector3.new(1, 1, 1)
+    handle.Parent = tool
+
+    local mesh = Instance.new("SpecialMesh")
+    mesh.MeshType = Enum.MeshType.FileMesh
+    mesh.MeshId = "rbxassetid://483878678"
+    mesh.TextureId = "rbxassetid://483878687"
+    mesh.Parent = handle
+
     tool.Parent = game.Players.LocalPlayer.Backpack
 end
 
@@ -35,10 +47,10 @@ MainTab:CreateButton({
     end,
 })
 
--- Button: Get Raccoon (Give Item)
+-- Button: Get Raccoon (Now called Secret, gives mesh tool)
 MainTab:CreateButton({
     Name = "Get Raccoon",
     Callback = function()
-        giveTool("Raccoon [521.82 KG] [Age 100]")
+        giveSecretTool()
     end,
 })
